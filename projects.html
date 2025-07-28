@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Projects and Development Work</title>
+    <link rel="stylesheet" href="portstyles.css" />
+    <style>
+        body {
+            background: #181a1b;
+            color: #fff;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .main-content {
+            max-width: 100vw;
+            margin: 0;
+            padding: 0 1.5vw;
+            margin-top: 7.5rem;
+        }
+        .projects-main-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+        .projects-main-subtitle {
+            text-align: center;
+            color: #b3b3b3;
+            font-size: 1.15rem;
+            margin-bottom: 3.5rem;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.8rem;
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+        .project-card {
+            background: #232526;
+            border-radius: 22px;
+            box-shadow: 0 6px 32px 0 rgba(0,0,0,0.22);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-width: 420px;
+            min-height: 420px;
+            height: 560px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.04);
+            box-shadow: 0 12px 40px 0 rgba(0,0,0,0.28);
+        }
+        .project-image {
+            width: 100%;
+            height: 71%;
+            object-fit: cover;
+            background: #111;
+        }
+        .project-content {
+            padding: 1rem 2rem 2rem 1.5rem;
+            height: 29%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .project-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.7rem;
+        }
+        .project-content p {
+            color: #b3b3b3;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+            flex: 1;
+        }
+        .project-link {
+            align-self: flex-start;
+            padding: 0.6rem 1.2rem;
+            background: var(--logo-v-color);
+            color: var(--bg-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .project-link:hover {
+            background: var(--bg-primary);
+            color: var(--logo-v-color);
+            border: 1.5px solid var(--logo-v-color);
+        }
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.75);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal {
+            background: #181a1b;
+            border-radius: 24px;
+            max-width: 1100px;
+            width: 98%;
+            box-shadow: 0 16px 48px 0 rgba(0,0,0,0.40);
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            position: relative;
+            animation: fadeInModal 0.25s;
+            min-height: 520px;
+            height: 560px;
+        }
+        @keyframes fadeInModal {
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-image {
+            width: 40%;
+            min-width: 320px;
+            height: 100%;
+            object-fit: cover;
+            background: #232526;
+            display: block;
+        }
+        .modal-content {
+            padding: 3rem 2.7rem 2.7rem 2.7rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+        }
+        .modal-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            color: #fff;
+        }
+        .modal-tags {
+            margin-bottom: 1.2rem;
+        }
+        .modal-tag {
+            display: inline-block;
+            background: #232526;
+            color: #ffae42;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 0.3rem 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .modal-desc {
+            color: #b3b3b3;
+            font-size: 1.18rem;
+            margin-bottom: 2.1rem;
+        }
+        .modal-link {
+            display: inline-block;
+            padding: 0.7rem 1.4rem;
+            background: var(--logo-v-color);
+            color: var(--bg-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .modal-link:hover {
+            background: var(--bg-primary);
+            color: var(--logo-v-color);
+            border: 1.5px solid var(--logo-v-color);
+        }
+        .modal-close {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            transition: color 0.2s;
+        }
+        .modal-close:hover {
+            color: #ffae42;
+        }
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 900px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 700px) {
+            .project-card {
+                min-width: 0;
+                min-height: 0;
+                height: 460px;
+            }
+            .modal {
+                flex-direction: column;
+                max-width: 98vw;
+                min-height: unset;
+                height: auto;
+            }
+            .modal-image {
+                width: 100%;
+                height: 220px;
+                min-width: 0;
+                object-fit: cover;
+            }
+            .modal-content {
+                padding: 2rem 1.2rem 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><span class="logo-v">V</span>ictor</div>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="main-content">
+        <h1 class="projects-main-title">Web Projects and Development Work</h1>
+        <div class="projects-main-subtitle">Some of the fun and interesting projects that I've developed.</div>
+        <div class="projects-grid">
+            <div class="project-card" data-project="project1">
+                <img src="images/Pampered By Yuni Page.jpg" alt="Pampered by Yuni" class="project-image">
+                <div class="project-content">
+                    <h3>Pampered by Yuni</h3>
+                    <p>Pampered By Yuni is a self-care beauty brand focused on healing through intentional, personalized wellness.</p>
+                </div>
+            </div>
+            <div class="project-card" data-project="vitech">
+                <img src="images/ViTech Landing Page.jpg" alt="ViTech Accessories" class="project-image">
+                <div class="project-content">
+                    <h3>ViTech Accessories</h3>
+                    <p>A modern e-commerce landing page showcasing tech accessories. Features responsive design and interactive elements.</p>
+                </div>
+            </div>
+            <div class="project-card" data-project="calculator">
+                <img src="images/Scientific Calculator.jpg" alt="Simple & Scientific Calculator" class="project-image">
+                <div class="project-content">
+                    <h3>Simple & Scientific Calculator</h3>
+                    <p>A feature-rich calculator that handles both basic arithmetic and complex scientific calculations. Built with HTML, CSS, and JavaScript.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Modal Structure -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <img src="" alt="Project Image" class="modal-image" id="modalImage">
+            <div class="modal-content">
+                <div class="modal-title" id="modalTitle"></div>
+                <div class="modal-tags" id="modalTags"></div>
+                <div class="modal-desc" id="modalDesc"></div>
+                <a href="#" class="modal-link" id="modalLink" target="_blank" rel="noopener">Visit Live Project</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Project data
+        const projects = {
+            calculator: {
+                title: 'Simple & Scientific Calculator',
+                image: 'images/Scientific Calculator.jpg',
+                tags: ['Front-end', 'Background Animation',],
+                desc: 'A feature-rich calculator that handles both basic arithmetic and complex scientific calculations. Built with HTML, CSS, and JavaScript.',
+                link: 'https://victamu.github.io/Calculator/index.html'
+            },
+            vitech: {
+                title: 'ViTech Accessories',
+                image: 'images/ViTech Landing Page.jpg',
+                tags: ['Front-end', 'E-commerce', 'Responsive'],
+                desc: 'A modern e-commerce landing page showcasing tech accessories. Features responsive design and interactive elements.',
+                link: 'https://victamu.github.io/ViTech/'
+            },
+            project1: {
+                title: 'Project 1 Title',
+                image: 'project1.jpg',
+                tags: ['Front-end', 'Website', 'UI/UX', ],
+                desc: 'Description of your project goes here. Explain the technologies used and the problem it solves.',
+                link: '#'
+            }
+        };
+        // Modal logic
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalTags = document.getElementById('modalTags');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalLink = document.getElementById('modalLink');
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const key = this.getAttribute('data-project');
+                const project = projects[key];
+                if (project) {
+                    modalImage.src = project.image;
+                    modalImage.alt = project.title;
+                    modalTitle.textContent = project.title;
+                    modalDesc.textContent = project.desc;
+                    modalLink.href = project.link;
+                    modalTags.innerHTML = project.tags.map(tag => `<span class='modal-tag'>${tag}</span>`).join(' ');
+                    modalOverlay.classList.add('active');
+                }
+            });
+        });
+        modalClose.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modalOverlay.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html> 
