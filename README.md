@@ -1,4 +1,4 @@
-# Victor Ekeke - Portfolio Website
+# Portfolio Website
 
 A modern, responsive portfolio website showcasing my web development skills and projects. Built with clean HTML, CSS, and JavaScript to demonstrate professional web design and development capabilities.
 
