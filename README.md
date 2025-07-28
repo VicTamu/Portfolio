@@ -57,9 +57,12 @@ Portfolio/
 - Simply open the HTML files in your preferred code editor
 - Make changes to HTML, CSS, or JavaScript files
 - Refresh your browser to see updates
-OR
-- Go to GitHub hosted Page with this link:
-  - 
+
+### Page Link (to avoid downloads)
+```bash
+   https://victamu.github.io/Portfolio/
+   ```
+
   
 ## 📱 Pages Overview
 
