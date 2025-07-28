@@ -120,7 +120,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👨‍💻 About the Developer
 
-**Victor Ekeke** is a results-driven web developer and Computer Science student with hands-on experience taking projects from concept to full-scale deployment. Specializing in building clean, responsive, and visually compelling websites using HTML, CSS, JavaScript, WordPress, and Squarespace.
+**Victor** is a results-driven web developer and Computer Science student with hands-on experience taking projects from concept to full-scale deployment. Specializing in building clean, responsive, and visually compelling websites using HTML, CSS, JavaScript, WordPress, and Squarespace.
 
 ### Skills
 - **Frontend Development**: HTML5, CSS3, JavaScript
@@ -144,4 +144,4 @@ While this is a personal portfolio, suggestions and feedback are welcome! Feel f
 
 ---
 
-*Built with ❤️ by Victor Ekeke* 
+*Built with ❤️ by Victor* 
