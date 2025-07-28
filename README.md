@@ -53,10 +53,7 @@ Portfolio/
 
 3. Open `index.html` in your web browser to view the portfolio
 
-### Local Development
-- Simply open the HTML files in your preferred code editor
-- Make changes to HTML, CSS, or JavaScript files
-- Refresh your browser to see updates
+### OR
 
 ### Page Link (to avoid downloads)
 ```bash
